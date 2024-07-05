@@ -1,0 +1,13 @@
+@use './resets.scss';
+@import './settings.scss';
+body {
+    width: 100%;
+    background-color: #000;
+    .container {
+        width: 85%; /* Используйте 100% для ширины */
+        min-height: 100vh;
+        margin: 0 auto;
+        height: auto;
+        
+    }
+}
