@@ -1,29 +1,45 @@
 @use '../resets.scss';
 @import '../settings.scss';
 
-header{
+header {
     width: 100%;
     height: 80px;
-    nav{
+
+    nav {
         display: flex;
-        
+
         height: inherit;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .left{
-            a{
-                img{
+
+        .left {
+            a {
+                img {
                     width: 110px;
                 }
             }
-        } 
-        .middle{
+        }
+
+        .middle {
             display: flex;
             gap: 30px;
+
+            a {
+                &.active {
+                    color: #5ec2b0;
+                    text-shadow:
+                        0 0 10px rgba(94, 194, 176, .7),
+                        0 0 10px rgba(94, 194, 176, .7),
+                        0 0 10px rgba(94, 194, 176, .7);
+                }
+
+            }
+
         }
-        .right{
+
+        .right {
             display: flex;
             gap: 20px;
         }

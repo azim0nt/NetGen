@@ -3,11 +3,20 @@
 body {
     width: 100%;
     background-color: #000;
+    position: relative;
     .container {
         width: 85%; /* Используйте 100% для ширины */
         min-height: 100vh;
         margin: 0 auto;
         height: auto;
-        
+    }
+    .glowing-spot{
+        position: absolute;
+        z-index: -1;
+        &.n-1{
+            top: 0;
+            left: 0; 
+    
+        }
     }
 }

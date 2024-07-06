@@ -9,8 +9,9 @@
   font-optical-sizing: auto;
 }
 
-a {
+a, button {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .bordered-btn {
@@ -44,6 +45,10 @@ header nav .left a img {
 header nav .middle {
   display: flex;
   gap: 30px;
+}
+header nav .middle a.active {
+  color: #5ec2b0;
+  text-shadow: 0 0 10px rgba(94, 194, 176, 0.7), 0 0 10px rgba(94, 194, 176, 0.7), 0 0 10px rgba(94, 194, 176, 0.7);
 }
 header nav .right {
   display: flex;

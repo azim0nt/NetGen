@@ -1,8 +1,22 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
-{% endblock title %}
+    <title>
+        NetGen - Home
+    </title>
+{% endblock %}
 
 {% block content %}
-<p>Home</p>
-{% endblock content %}
+  <div class="home-container">
+    <div class="info">
+      <p class="title">
+        Мы делаем крипту <br /> понятной и простой
+      </p>
+      <p class="about">Создавайте, покупайте и развивайте свою криптовалюту с помощью CoinFlip, платформы, предназначенной для каждого трейдера на любом уровне.</p>
+      <button class="glow-btn"><a href="#">Начать</a></button>
+    </div>
+
+    <img class="circles" src="{% static 'images/circles.png' %}" alt="">
+  </div>
+{% endblock %}

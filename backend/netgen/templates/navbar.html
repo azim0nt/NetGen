@@ -7,13 +7,15 @@
                 <img src="{% static 'images/logo.png'%}" alt="">
             </a>
         </div>
+        {% with request.resolver_match.url_name as url_name %}
         <div class="middle">
-            <a href="#">Монеты</a>
-            <a href="#">Популярные</a>
-            <a href="#">Маркет</a>
-            <a href="#">Контакты</a>
-            <a href="#">Мой кабинет</a>
+            <a href="{% url "coins" %}"  class="{% if url_name == 'coins' %}active{% endif %}">Монеты</a>
+            <a href="{% url "popular" %}" class="{% if url_name == 'popular' %}active{% endif %}">Популярные</a>
+            <a href="{% url "market" %}" class="{% if url_name == 'market' %}active{% endif %}">Маркет</a>
+            <a href="{% url "contacts" %}" class="{% if url_name == 'contacts' %}active{% endif %}">Контакты</a>
+            <a href="{% url "dashboard" %}" class="{% if url_name == 'dashboard' %}active{% endif %}">Мой кабинет</a>
         </div>
+        {% endwith %}
         <div class="right">
             <a href="#" class="bordered-btn">
                 Sign in

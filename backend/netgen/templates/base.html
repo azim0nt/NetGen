@@ -7,7 +7,9 @@
     {% block title %}
     <title>NetGen</title>
     {% endblock title %}
+    <link rel="shortcut icon" href="{% static 'images/favicon.svg' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static '/scss/navbar/index.css' %}" />
+    <link rel="stylesheet" href="{% static '/scss/home/index.css' %}" />
     <link rel="stylesheet" href="{% static '/scss/index.css' %}" />
     
     {% block css %}
@@ -16,6 +18,7 @@
 </head>
 <body>
     <div class="container">
+        <img class="glowing-spot n-1" src="{% static 'images/glowing-spot.png' %}" alt="">
         <div class="navigation-container">
             {% include "navbar.html" %}
         </div>
@@ -24,6 +27,7 @@
             <p>Base</p>
             {% endblock content %}
         </div>
+        
     </div>
 </body>
 </html>

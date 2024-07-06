@@ -10,8 +10,9 @@
     font-optical-sizing: auto;
 }
 
-a{
+a, button{
     text-decoration: none;
+    cursor: pointer;
 }
 .bordered-btn{
     padding: 10px 20px;
