@@ -20,6 +20,10 @@ a, button{
     border-radius: 10px;
     border: 2px solid #fff;
     background-color: #00000000;
+    &.violet{
+        border: 2px solid $light-violet;
+        color: $light-violet;
+    }
 }
 %glow-btn{
     background: $glow-gradient;

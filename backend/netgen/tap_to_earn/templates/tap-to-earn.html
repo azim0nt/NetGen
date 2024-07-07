@@ -17,7 +17,11 @@
                 {{game.about}}
             </i>
             <p><b>Платформа : </b> {{game.platform}}</p>
-            <a href="{{game.link}}" class="bordered-btn">Играть</a>
+            <p><b>Дата добавление : </b> {{game.added_date}}</p>
+            <a href="{{game.link}}" class="bordered-btn violet">Играть</a>
+            <div class="CRUD-operations">
+                <a href="{% url "update-game" game.id %}">Изменить</a>
+            </div>
         </div>
         {% endfor %}
     </div>

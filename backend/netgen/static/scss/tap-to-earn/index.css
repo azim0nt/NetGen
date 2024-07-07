@@ -15,14 +15,18 @@ a, button {
   background-color: transparent !important;
 }
 
-.add-game-wrapper .form form button {
+.form-wrapper .form form button {
   padding: 10px 20px;
   border-radius: 10px;
   border: 2px solid #fff;
   background-color: rgba(0, 0, 0, 0);
 }
+.form-wrapper .form form button.violet {
+  border: 2px solid #B982FF;
+  color: #B982FF;
+}
 
-.add-game-wrapper .form form p input, .add-game-wrapper .form form p select {
+.form-wrapper .form form p input, .form-wrapper .form form p select {
   padding: 10px 20px;
   background-color: rgba(77, 158, 157, 0.3098039216);
   border-radius: 10px;
@@ -49,16 +53,16 @@ a, button {
   width: 100px;
 }
 
-.add-game-wrapper {
+.form-wrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.add-game-wrapper .form {
+.form-wrapper .form {
   display: flex;
   justify-content: center;
 }
-.add-game-wrapper .form form {
+.form-wrapper .form form {
   width: 500px;
   max-width: 500px;
   display: flex;
@@ -66,15 +70,15 @@ a, button {
   align-items: center;
   gap: 20px;
 }
-.add-game-wrapper .form form p {
+.form-wrapper .form form p {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
 }
-.add-game-wrapper .form form p select {
+.form-wrapper .form form p select {
   background-color: #183131;
 }
-.add-game-wrapper .form form button {
+.form-wrapper .form form button {
   width: 150px;
 }/*# sourceMappingURL=index.css.map */
