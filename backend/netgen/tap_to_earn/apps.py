@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class PopularConfig(AppConfig):
+class TapToEarnConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'popular'
+    name = 'tap_to_earn'

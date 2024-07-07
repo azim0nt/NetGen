@@ -2,5 +2,5 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-   path('', popular, name='popular'),
+    path('', tap_to_earn, name='tap_to_earn')
 ]
