@@ -1,30 +1,60 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 {% block title %}
-<title>NetGen - Tap to Earn</title>
-{% endblock title %}
+  <title>NetGen - Tap to Earn</title>
+{% endblock %}
 
 {% block content %}
-<div class="games-wrapper">
-    <button class="bordered-btn"><a  href="{% url "add-game" %}">Добавить Игру</a></button>
+  <div class="games-wrapper">
+    <button class="bordered-btn"><a href="{% url 'add-game' %}">Добавить Игру</a></button>
     <div class="games-container">
-        {% for game in games %}
-        <div class="game n-{{game.id}} coin-card">
-            <h1 class="name">
-                {{game.name}}
-            </h1>
-            <i>
-                {{game.about}}
-            </i>
-            <p><b>Платформа : </b> {{game.platform}}</p>
-            <p><b>Дата добавление : </b> {{game.added_date}}</p>
-            <a href="{{game.link}}" class="bordered-btn violet">Играть</a>
-            <div class="CRUD-operations">
-                <a href="{% url "update-game" game.id %}">Изменить</a>
-            </div>
+      {% for game in games %}
+        <div class="game n-{{ game.id }} coin-card">
+          <h1 class="name">{{ game.name }}</h1>
+          <i>{{ game.about }}</i>
+          <p>
+            <b>Платформа :</b> {{ game.platform }}
+          </p>
+          <p>
+            <b>Дата добавление :</b> {{ game.added_date }}
+          </p>
+          <a href="{{ game.link }}" class="bordered-btn violet">Играть</a>
+          <div class="CRUD-operations">
+            <a href="{% url 'update-game' game.id %}">Изменить</a>
+            <a href="#" onclick="openModalWindow('{{ game.id }}')">Удалить</a>
+          </div>
         </div>
-        {% endfor %}
+      {% endfor %}
+      <div class="modal-window-bg">
+        <div class="modal-window">
+          <p>Вы действительнно хотите удалить эту игру?</p>
+          <div class="yes-or-no">
+            <button class="bordered-btn green" onclick="confirmDeletion()">Да</button> <button class="bordered-btn red" onclick="closeModalWindow()">Нет</button>
+          </div>
+        </div>
+      </div>
     </div>
-    </ul>
-</div>
-{% endblock content %}
+  </div>
+  {% block script %}
+    <script>
+      const modalWindowBg = document.querySelector('.modal-window-bg')
+      var currentGameID = null
+      modalWindowBg.style.display = 'none'
+      function openModalWindow(gameID) {
+        modalWindowBg.style.display = 'flex'
+        currentGameID = gameID
+        console.log('Hello world')
+      }
+      
+      function closeModalWindow() {
+        modalWindowBg.style.display = 'none'
+      } 
+      function confirmDeletion() {
+        let url = '{% url "delete_game" 99999999 %}'
+        url = url.replace('99999999', currentGameID)
+        location.href = url
+        closeModalWindow()
+      }
+    </script>
+  {% endblock %}
+{% endblock %}

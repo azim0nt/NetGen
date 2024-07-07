@@ -24,6 +24,14 @@ a, button{
         border: 2px solid $light-violet;
         color: $light-violet;
     }
+    &.green{
+        border: 2px solid $green;
+        color: $green;
+    }
+    &.red{
+        border: 2px solid $red;
+        color: $red;
+    }
 }
 %glow-btn{
     background: $glow-gradient;

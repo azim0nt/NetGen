@@ -25,6 +25,14 @@ a, button {
   border: 2px solid #B982FF;
   color: #B982FF;
 }
+.form-wrapper .form form button.green {
+  border: 2px solid #16bf9c;
+  color: #16bf9c;
+}
+.form-wrapper .form form button.red {
+  border: 2px solid #fc4a22;
+  color: #fc4a22;
+}
 
 .form-wrapper .form form p input, .form-wrapper .form form p select {
   padding: 10px 20px;
@@ -51,6 +59,36 @@ a, button {
 }
 .games-wrapper .games-container .game a {
   width: 100px;
+}
+.games-wrapper .modal-window-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+.games-wrapper .modal-window-bg .modal-window {
+  width: 500px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.1294117647);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.368627451);
+  padding: 20px;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  display: flex;
+}
+.games-wrapper .modal-window-bg .modal-window .yes-or-no {
+  display: flex;
+  gap: 20px;
 }
 
 .form-wrapper {

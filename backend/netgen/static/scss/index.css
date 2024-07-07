@@ -26,6 +26,14 @@ body * .violet.bordered-btn {
   border: 2px solid #B982FF;
   color: #B982FF;
 }
+body * .green.bordered-btn {
+  border: 2px solid #16bf9c;
+  color: #16bf9c;
+}
+body * .red.bordered-btn {
+  border: 2px solid #fc4a22;
+  color: #fc4a22;
+}
 
 body * .glow-btn {
   background: linear-gradient(225deg, #18C8FF 14.89%, #933FFE 85.85%);

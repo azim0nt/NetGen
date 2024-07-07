@@ -41,3 +41,9 @@ def update_game(request, pk: int):
         'game': game
     }
     return render(request, 'update_game.html', context)
+
+def delete_game(request,pk:int):
+    game = Games.objects.get(id=pk)
+    game.delete()
+    messages.success(request,"Game deleted successfully")
+    return redirect('tap-to-earn')
