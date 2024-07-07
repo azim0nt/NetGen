@@ -1,9 +1,26 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
 <title>NetGen - Tap to Earn</title>
 {% endblock title %}
 
 {% block content %}
-<h1>Tap-to-Earn</h1>
+<div class="games-wrapper">
+    <button class="bordered-btn"><a  href="{% url "add-game" %}">Добавить Игру</a></button>
+    <div class="games-container">
+        {% for game in games %}
+        <div class="game n-{{game.id}} coin-card">
+            <h1 class="name">
+                {{game.name}}
+            </h1>
+            <i>
+                {{game.about}}
+            </i>
+            <p><b>Платформа : </b> {{game.platform}}</p>
+            <a href="{{game.link}}" class="bordered-btn">Играть</a>
+        </div>
+        {% endfor %}
+    </div>
+    </ul>
+</div>
 {% endblock content %}

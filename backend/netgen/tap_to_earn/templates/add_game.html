@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>NetGen - Add Game</title>
+{% endblock title %}
+
+{% block content %}
+<div class="add-game-wrapper">
+    <h1>Добавить новую игру</h1>
+    <div class="form">
+        {% include "form_snippets.html"  with form=form btn_text="Добавить игру"%}
+    </div>
+</div>
+{% endblock content %}

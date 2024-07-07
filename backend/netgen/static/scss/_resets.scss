@@ -13,16 +13,33 @@
 a, button{
     text-decoration: none;
     cursor: pointer;
+    background-color: transparent !important;
 }
-.bordered-btn{
+%bordered-btn{
     padding: 10px 20px;
     border-radius: 10px;
     border: 2px solid #fff;
+    background-color: #00000000;
 }
-.glow-btn{
+%glow-btn{
     background: $glow-gradient;
     padding: 10px 20px;
     border-radius: 10px;
     border: 2px solid var(--gradient-light, rgba(255, 255, 255, 0.47));
 
+}
+%coin-card{
+    border-radius: 10px;
+    background-color: $dark-blue;
+    padding: 20px; 
+    color: #fff;
+} 
+
+%glass-input{
+    padding: 10px 20px;
+    background-color: #4d9e9d4f;
+    border-radius: 10px;
+    border: 2px solid #84f7f542;
+    outline: none;
+    backdrop-filter: blur(10px);
 }

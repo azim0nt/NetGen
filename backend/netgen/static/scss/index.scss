@@ -1,22 +1,43 @@
 @use './resets.scss';
 @import './settings.scss';
+
 body {
     width: 100%;
     background-color: #000;
     position: relative;
+
+    * {
+        .bordered-btn {
+            @extend %bordered-btn;
+            background-color: #00000000;
+
+        }
+
+        .glow-btn {
+            @extend %glow-btn;
+        }
+
+        .coin-card {
+            @extend %coin-card;
+        }
+    }
+
     .container {
-        width: 85%; /* Используйте 100% для ширины */
+        width: 85%;
+        /* Используйте 100% для ширины */
         min-height: 100vh;
         margin: 0 auto;
         height: auto;
     }
-    .glowing-spot{
+
+    .glowing-spot {
         position: absolute;
         z-index: -1;
-        &.n-1{
+
+        &.n-1 {
             top: 0;
-            left: 0; 
-    
+            left: 0;
+
         }
     }
 }

@@ -1,0 +1,57 @@
+@use '../resets.scss';
+@import '../settings.scss';
+
+
+
+    .games-wrapper{
+        .bordered-btn{
+            margin: 10px 0;
+        }
+        .games-container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            .game{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                a{
+                    width: 100px;
+                }
+            }
+        }
+    }
+    .add-game-wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .form{
+            display: flex;
+            justify-content: center;
+            form{
+                width: 500px;
+                max-width: 500px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                p{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    width: 100%;
+                    input{
+                        @extend %glass-input;
+                    }
+                    select{
+                        @extend %glass-input;
+                        background-color:#183131 ;
+                    }
+                }
+                button{
+                    @extend %bordered-btn;
+                    width: 150px;
+                }
+            }
+        }
+    }

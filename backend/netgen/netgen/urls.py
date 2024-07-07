@@ -21,7 +21,7 @@ urlpatterns = [
     path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('coins/', include('coins.urls')),   
-    path('tap_to_earn/', include('tap_to_earn.urls')),   
+    path('tap-to-earn/', include('tap_to_earn.urls')),   
     path('market/', include('market.urls')), 
     path('contacts/', include('contacts.urls')), 
     path('dashboard/', include('dashboard.urls')), 

@@ -12,19 +12,7 @@
 a, button {
   text-decoration: none;
   cursor: pointer;
-}
-
-.bordered-btn {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #fff;
-}
-
-.glow-btn {
-  background: linear-gradient(225deg, #18C8FF 14.89%, #933FFE 85.85%);
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid var(--gradient-light, rgba(255, 255, 255, 0.47));
+  background-color: transparent !important;
 }
 
 .home-container {

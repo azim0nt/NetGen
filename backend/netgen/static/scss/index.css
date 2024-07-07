@@ -13,19 +13,28 @@
 a, button {
   text-decoration: none;
   cursor: pointer;
+  background-color: transparent !important;
 }
 
-.bordered-btn {
+body * .bordered-btn {
   padding: 10px 20px;
   border-radius: 10px;
   border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0);
 }
 
-.glow-btn {
+body * .glow-btn {
   background: linear-gradient(225deg, #18C8FF 14.89%, #933FFE 85.85%);
   padding: 10px 20px;
   border-radius: 10px;
   border: 2px solid var(--gradient-light, rgba(255, 255, 255, 0.47));
+}
+
+body * .coin-card {
+  border-radius: 10px;
+  background-color: #1A1B23;
+  padding: 20px;
+  color: #fff;
 }
 
 body {
@@ -33,8 +42,12 @@ body {
   background-color: #000;
   position: relative;
 }
+body * .bordered-btn {
+  background-color: rgba(0, 0, 0, 0);
+}
 body .container {
-  width: 85%; /* Используйте 100% для ширины */
+  width: 85%;
+  /* Используйте 100% для ширины */
   min-height: 100vh;
   margin: 0 auto;
   height: auto;

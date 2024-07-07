@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+  color: #fff;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+}
+
+a, button {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent !important;
+}
+
+.add-game-wrapper .form form button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.add-game-wrapper .form form p input, .add-game-wrapper .form form p select {
+  padding: 10px 20px;
+  background-color: rgba(77, 158, 157, 0.3098039216);
+  border-radius: 10px;
+  border: 2px solid rgba(132, 247, 245, 0.2588235294);
+  outline: none;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+.games-wrapper .bordered-btn {
+  margin: 10px 0;
+}
+.games-wrapper .games-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+.games-wrapper .games-container .game {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.games-wrapper .games-container .game a {
+  width: 100px;
+}
+
+.add-game-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.add-game-wrapper .form {
+  display: flex;
+  justify-content: center;
+}
+.add-game-wrapper .form form {
+  width: 500px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.add-game-wrapper .form form p {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.add-game-wrapper .form form p select {
+  background-color: #183131;
+}
+.add-game-wrapper .form form button {
+  width: 150px;
+}/*# sourceMappingURL=index.css.map */
