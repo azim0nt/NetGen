@@ -17,6 +17,17 @@
             font-size: 64px;
             font-weight: 800;
             line-height: 70px;
+            span{
+                position: relative;
+                .glass-circle{
+                    position: absolute;
+                    z-index: -1;
+                    left: -10px;
+                    bottom: -35px;
+                    width: 130px;
+                    opacity: 0.7;
+                }
+            }
         }
         .about{
             color: $light-gray;

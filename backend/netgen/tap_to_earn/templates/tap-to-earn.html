@@ -20,8 +20,9 @@
           </p>
           <a href="{{ game.link }}" class="bordered-btn violet">Играть</a>
           <div class="CRUD-operations">
-            <a href="{% url 'update-game' game.id %}">Изменить</a>
-            <a href="#" onclick="openModalWindow('{{ game.id }}')">Удалить</a>
+            <a class="bordered-btn blue" href="{% url 'update-game' game.id %}">Изменить</a>
+            <a class="bordered-btn green" href="{% url "details-game" game.id %}">Посмотреть</a>
+            <a class="bordered-btn red" href="#" onclick="openModalWindow('{{ game.id }}')">Удалить</a>
           </div>
         </div>
       {% endfor %}

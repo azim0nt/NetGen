@@ -47,3 +47,9 @@ def delete_game(request,pk:int):
     game.delete()
     messages.success(request,"Game deleted successfully")
     return redirect('tap-to-earn')
+
+
+def game_details(request, pk:int):
+    game = Games.objects.get(id=pk)
+    context = {'game':game}
+    return render(request, 'game_details.html', context)
