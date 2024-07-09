@@ -10,6 +10,7 @@
     <div class="games-container">
       {% for game in games %}
         <div class="game n-{{ game.id }} coin-card">
+          <img src="{{game.image.url}}" width="100" alt="">
           <h1 class="name">{{ game.name }}</h1>
           <i>{{ game.about }}</i>
           <p>

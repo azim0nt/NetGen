@@ -1,7 +1,8 @@
-from django.forms import forms, ModelForm
+from django import forms
 from .models import Games
 
-class GamesForm(ModelForm):
+class GamesForm(forms.ModelForm):
+    image = forms.ImageField(label='Image', required=False, widget=forms.FileInput(attrs={'class':'form-control'}))
     class Meta:
         model = Games
-        fields = [ 'name', 'platform', 'about', 'link']
+        fields = [ 'name', 'platform', 'about', 'link', 'image']

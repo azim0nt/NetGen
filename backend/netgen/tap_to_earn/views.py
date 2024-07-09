@@ -14,7 +14,7 @@ def tap_to_earn(request):
 def add_game(request):
     form = GamesForm()
     if request.method == 'POST':
-        form = GamesForm(request.POST)
+        form = GamesForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Game added successfully')
