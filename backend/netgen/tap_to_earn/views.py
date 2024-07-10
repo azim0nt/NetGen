@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Games
 from .forms import GamesForm
 from django.contrib import messages
-
+import os
 
 def tap_to_earn(request):
     context = {
@@ -27,12 +27,19 @@ def update_game(request, pk: int):
     game = Games.objects.get(id=pk)
     form = GamesForm(instance=game)
     if request.method == 'POST':
-        form = GamesForm(request.POST)
+        
+        old_image = Games.objects.get(id=pk)
+        form = GamesForm(request.POST, request.FILES, instance=old_image)
+        
         if form.is_valid():
             game.name = form.cleaned_data.get('name')
             game.platform = form.cleaned_data.get('platform')
             game.about = form.cleaned_data.get('about')
             game.link = form.cleaned_data.get('link')
+            game.image = form.cleaned_data.get('image')
+            image_path = old_image.image.path
+            if os.path.exists(image_path):
+                os.remove(image_path)
             game.save()
             messages.success(request, 'Game updated successfully')
             return redirect('tap-to-earn')

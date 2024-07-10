@@ -59,10 +59,26 @@ a, button {
 .games-wrapper .games-container .game {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 20px;
   gap: 20px;
+}
+.games-wrapper .games-container .game .icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.games-wrapper .games-container .game .icon img {
+  border-radius: 50%;
 }
 .games-wrapper .games-container .game a {
   width: 100px;
+}
+.games-wrapper .games-container .game p {
+  width: 100%;
 }
 .games-wrapper .games-container .game .CRUD-operations a {
   padding: 5px;
@@ -132,7 +148,38 @@ a, button {
 .game-details-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+}
+.game-details-wrapper .card {
+  width: 70%;
+  background-color: #1A1B23;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.game-details-wrapper .card .icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+.game-details-wrapper .card .icon-wrapper .icon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.game-details-wrapper .card .icon-wrapper .icon img {
+  width: 100%;
+}
+.game-details-wrapper .card .about-wrapper {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 .game-details-wrapper .modal-window-bg {
   position: fixed;

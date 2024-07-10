@@ -3,14 +3,15 @@
 {% block title %}
   <title>NetGen - Tap to Earn</title>
 {% endblock %}
-
 {% block content %}
   <div class="games-wrapper">
     <button class="bordered-btn"><a href="{% url 'add-game' %}">Добавить Игру</a></button>
     <div class="games-container">
       {% for game in games %}
         <div class="game n-{{ game.id }} coin-card">
-          <img src="{{game.image.url}}" width="100" alt="">
+          <div class="icon" style="border: 2px solid {{ game.primary_color|default:'#ffffff' }}; box-shadow:2px 5px 10px {{ game.primary_color|default:'#ffffff' }};">
+            <img src="{{game.image.url}}" width="100" alt="">
+          </div>
           <h1 class="name">{{ game.name }}</h1>
           <i>{{ game.about }}</i>
           <p>

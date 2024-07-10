@@ -6,17 +6,26 @@
 
 {% block content %}
   <div class="game-details-wrapper">
-    <h1>{{ game.name }}</h1>
-    <i>{{ game.about }}</i>
-    <p>
-      <b>Платформа :</b> {{ game.platform }}
-    </p>
-    <p>
-      <b>Дата добавление :</b> {{ game.added_date }}
-    </p>
-    <div class="CRUD-operations">
-      <a class="bordered-btn blue" href="{% url 'update-game' game.id %}">Изменить</a>
-      <a class="bordered-btn red" href="#" onclick="openModalWindow('{{ game.id }}')">Удалить</a>
+    <div class="card">
+      <div class="icon-wrapper" style="background-color: {{game.primary_color}}70;">
+        <div class="icon" style="border: 2px solid {{ game.primary_color|default:'#ffffff' }}; box-shadow:2px 5px 10px {{ game.primary_color|default:'#ffffff' }};">
+          <img src="{{game.image.url}}" alt="">
+        </div>
+      </div>
+      <div class="about-wrapper">
+        <h1>{{ game.name }}</h1>
+        <i>{{ game.about }}</i>
+        <p>
+          <b>Платформа :</b> {{ game.platform }}
+        </p>
+        <p>
+          <b>Дата добавление :</b> {{ game.added_date }}
+        </p>
+        <div class="CRUD-operations">
+          <a class="bordered-btn blue" href="{% url 'update-game' game.id %}">Изменить</a>
+          <a class="bordered-btn red" href="#" onclick="openModalWindow('{{ game.id }}')">Удалить</a>
+        </div>
+      </div>
     </div>
     <div class="modal-window-bg">
       <div class="modal-window">
