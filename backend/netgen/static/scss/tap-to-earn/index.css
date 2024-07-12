@@ -66,13 +66,16 @@ a, button {
 .games-wrapper .games-container .game .icon {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 .games-wrapper .games-container .game .icon img {
-  border-radius: 50%;
+  display: none;
+}
+.games-wrapper .games-container .game .icon img.current {
+  display: block;
 }
 .games-wrapper .games-container .game a {
   width: 100px;
@@ -94,6 +97,7 @@ a, button {
           backdrop-filter: blur(5px);
   justify-content: center;
   align-items: center;
+  display: none;
 }
 .games-wrapper .modal-window-bg .modal-window {
   width: 500px;
@@ -167,13 +171,19 @@ a, button {
   height: 300px;
 }
 .game-details-wrapper .card .icon-wrapper .icon {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 .game-details-wrapper .card .icon-wrapper .icon img {
-  width: 100%;
+  display: none;
+  width: 200px;
+  height: 200px;
+}
+.game-details-wrapper .card .icon-wrapper .icon img.current {
+  display: block;
 }
 .game-details-wrapper .card .about-wrapper {
   padding: 20px;

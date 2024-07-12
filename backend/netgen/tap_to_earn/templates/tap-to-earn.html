@@ -7,24 +7,30 @@
   <div class="games-wrapper">
     <button class="bordered-btn"><a href="{% url 'add-game' %}">Добавить Игру</a></button>
     <div class="games-container">
-      {% for game in games %}
-        <div class="game n-{{ game.id }} coin-card">
-          <div class="icon" style="border: 2px solid {{ game.primary_color|default:'#ffffff' }}; box-shadow:2px 5px 10px {{ game.primary_color|default:'#ffffff' }};">
-            <img src="{{game.image.url}}" width="100" alt="">
+      {% for obj in games %}
+        <div class="game n-{{ obj.game.id }} coin-card">
+          <div class="icon" style="border: 2px solid {{ obj.game.primary_color|default:'#ffffff' }}; box-shadow:2px 5px 10px {{ obj.game.primary_color|default:'#ffffff' }};">
+            <button class="prev bordered-btn"><</button>
+            <div class="images">
+              {% for img in obj.images %}
+                <img src="{{ img.image.url }}" class="{{ forloop.counter }}" width="100px" alt="" />
+              {% endfor %}
+            </div>
+            <button class="next bordered-btn">></button>
           </div>
-          <h1 class="name">{{ game.name }}</h1>
-          <i>{{ game.about }}</i>
+          <h1 class="name">{{ obj.game.name }}</h1>
+          <i>{{ obj.game.about }}</i>
           <p>
-            <b>Платформа :</b> {{ game.platform }}
+            <b>Платформа :</b> {{ obj.game.platform }}
           </p>
           <p>
-            <b>Дата добавление :</b> {{ game.added_date }}
+            <b>Дата добавление :</b> {{ obj.game.added_date }}
           </p>
-          <a href="{{ game.link }}" class="bordered-btn violet">Играть</a>
+          <a href="{{ obj.game.link }}" class="bordered-btn violet">Играть</a>
           <div class="CRUD-operations">
-            <a class="bordered-btn blue" href="{% url 'update-game' game.id %}">Изменить</a>
-            <a class="bordered-btn green" href="{% url "details-game" game.id %}">Посмотреть</a>
-            <a class="bordered-btn red" href="#" onclick="openModalWindow('{{ game.id }}')">Удалить</a>
+            <a class="bordered-btn blue" href="{% url 'update-game' obj.game.id %}">Изменить</a>
+            <a class="bordered-btn green" href="{% url 'details-game' obj.game.id %}">Посмотреть</a>
+            <a class="bordered-btn red" href="#" onclick="openModalWindow('{{ obj.game.id }}')">Удалить</a>
           </div>
         </div>
       {% endfor %}
@@ -41,6 +47,41 @@
   {% block script %}
     <script>
       const modalWindowBg = document.querySelector('.modal-window-bg')
+      const games = document.querySelectorAll('.game');
+
+      games.forEach(game => {
+          const images = game.querySelectorAll('.images img');
+          const prev = game.querySelector('.prev');
+          const next = game.querySelector('.next');
+          let currentIndex = 0; // Индекс текущего изображения, начинаем с 0
+      
+          prev.addEventListener('click', () => {
+              if (currentIndex > 0) {
+                  currentIndex--;
+                  updateImage();
+              }
+          });
+      
+          next.addEventListener('click', () => {
+              if (currentIndex < images.length - 1) {
+                  currentIndex++;
+                  updateImage();
+              }
+          });
+      
+          function updateImage() {
+              // Убираем класс 'current' у всех изображений в текущем блоке
+              images.forEach((image, index) => {
+                  if (index === currentIndex) {
+                      image.classList.add('current');
+                  } else {
+                      image.classList.remove('current');
+                  }
+              });
+          }
+      
+          updateImage(); // Вызываем для установки начального изображения
+      });
       var currentGameID = null
       modalWindowBg.style.display = 'none'
       function openModalWindow(gameID) {
@@ -48,10 +89,9 @@
         currentGameID = gameID
         console.log('Hello world')
       }
-      
       function closeModalWindow() {
         modalWindowBg.style.display = 'none'
-      } 
+      }
       function confirmDeletion() {
         let url = '{% url "delete_game" 99999999 %}'
         url = url.replace('99999999', currentGameID)
