@@ -1,0 +1,17 @@
+{% extends "./auth.html" %}
+{% load static %}
+{% block content %}
+<div class="signup-container">
+    <div class="image">
+        <img src="{% static 'images/astronaut.png' %}" alt="">
+    </div>
+    <h2>Добро пожаловать в NetGen👾!</h2>
+    <form method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="btns">
+          <button type="submit" class="glow-btn">Sign up</button><a class="bordered-btn violet" href="{% url "account_login" %}">Sign in</a>
+      </div>
+    </form>
+</div>
+{% endblock content %}

@@ -27,5 +27,7 @@ urlpatterns = [
     path('tap-to-earn/', include('tap_to_earn.urls')),   
     path('market/', include('market.urls')), 
     path('contacts/', include('contacts.urls')), 
+    path('accounts/', include('allauth.urls')),
     path('dashboard/', include('dashboard.urls')), 
+    path('users/', include('users.urls'))  
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
