@@ -18,7 +18,7 @@
         {% endwith %}
         <div class="right">
             {% if request.user.is_authenticated %}
-            <h2><a href="{% url "profile_page" request.user.id %}">{{request.user.username}}</a></h2>
+            <h2><a href="{% url "profile_page" request.user.username %}">{{request.user.username}}</a></h2>
             <a href="{% url 'account_logout' %}">Logout</a>
             {% else %}
             <a href="{% url "account_login" %}" class="bordered-btn">

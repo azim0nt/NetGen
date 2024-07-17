@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Profile
-
+from django.contrib.auth.models import User
 
 def users(request):
     context = {
@@ -12,6 +12,10 @@ def users(request):
 
 
 @login_required
-def profile_page(request, pk=None):
-    obj = Profile.objects.get(pk=pk)
+def profile_page(request, username=None):
+    user = get_object_or_404(User, username=username)
+    try:
+        obj = user.profile
+    except Profile.DoesNotExist:
+        obj = Profile.objects.create(user=user)
     return render(request, "profile_page.html", {"obj": obj})

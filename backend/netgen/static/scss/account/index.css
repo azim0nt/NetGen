@@ -60,12 +60,15 @@ a, button {
 }
 .auth-wrapper .auth-container {
   padding: 0 40px;
-  -webkit-backdrop-filter: blur(30px);
-          backdrop-filter: blur(30px);
-  background-color: rgba(32, 0, 61, 0.3647058824);
+  /* From https://css.glass */
+  background: rgba(43, 0, 83, 0.365);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(141, 103, 176, 0.45);
   width: 500px;
   height: 500px;
-  border: 1px solid var(--gradient-light, rgba(201, 136, 231, 0.8274509804));
   border-radius: 20px;
   position: relative;
 }
@@ -124,7 +127,8 @@ a, button {
   height: 40px;
   justify-content: space-between;
 }
-.auth-wrapper .auth-container .login-container form .btns button, .auth-wrapper .auth-container .login-container form .btns a {
+.auth-wrapper .auth-container .login-container form .btns button,
+.auth-wrapper .auth-container .login-container form .btns a {
   width: 45%;
   text-align: center;
 }
@@ -182,7 +186,8 @@ a, button {
   height: 40px;
   justify-content: space-between;
 }
-.auth-wrapper .auth-container .signup-container form .btns button, .auth-wrapper .auth-container .signup-container form .btns a {
+.auth-wrapper .auth-container .signup-container form .btns button,
+.auth-wrapper .auth-container .signup-container form .btns a {
   width: 45%;
   text-align: center;
 }/*# sourceMappingURL=index.css.map */

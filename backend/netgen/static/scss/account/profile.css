@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+  color: #fff;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+}
+
+a, button {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent !important;
+}
+
+.profile-wrapper {
+  background-color: #000000;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.profile-wrapper .glow {
+  position: absolute;
+  z-index: 0;
+}
+.profile-wrapper .glow.n-1 {
+  top: 0;
+  left: 0;
+}
+.profile-wrapper .glow.n-2 {
+  bottom: 0;
+  right: 0;
+}
+.profile-wrapper .glow.n-3 {
+  top: 40%;
+  right: 0;
+}/*# sourceMappingURL=profile.css.map */
