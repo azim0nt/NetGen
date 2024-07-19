@@ -20,6 +20,9 @@ a, button {
   width: 100%;
   height: 100vh;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .profile-wrapper .glow {
   position: absolute;
@@ -36,4 +39,15 @@ a, button {
 .profile-wrapper .glow.n-3 {
   top: 40%;
   right: 0;
+}
+.profile-wrapper .profile .profile-container {
+  width: 400px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  min-height: 400px;
+  padding: 20px;
 }/*# sourceMappingURL=profile.css.map */

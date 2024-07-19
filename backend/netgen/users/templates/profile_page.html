@@ -11,10 +11,12 @@
     <div class="profile-wrapper">
         <img class="glow n-1" src="{% static 'images/glowing-spot.png' %}" alt="">
         <img class="glow n-2" src="{% static 'images/glowing-spot-2.png' %}" alt="">
-        <img class="glow n-3" src="{% static 'images/sphere.png' %}" alt="">  
-        <div class="profile-container">
-            
-       </div>
+        <img class="glow n-3" src="{% static 'images/sphere.png' %}" alt=""> 
+        <div class="profile">
+            <div class="profile-container">
+                <h1 class="username">{{obj.user.username}}</h1>
+           </div>
+        </div> 
     </div>
 </body>
 </html>
