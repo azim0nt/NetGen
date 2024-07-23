@@ -18,6 +18,7 @@ def add_game(request):
     form = GamesForm()
     if request.method == 'POST':
         form = GamesForm(request.POST, request.FILES)
+        form.instance.author_of_post = request.user
         images = request.FILES.getlist('images')
         if form.is_valid():
             form.save()

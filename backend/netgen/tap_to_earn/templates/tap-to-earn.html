@@ -27,6 +27,7 @@
           <p>
             <b>Дата добавление :</b> {{ obj.game.added_date }}
           </p>
+          <p><b>Автор :</b> {{obj.game.author_of_post}}</p>
           <a href="{{ obj.game.link }}" class="bordered-btn violet">Играть</a>
           <div class="CRUD-operations">
             <a class="bordered-btn blue" href="{% url 'update-game' obj.game.id %}">Изменить</a>
@@ -54,7 +55,7 @@
           const images = game.querySelectorAll('.images img');
           const prev = game.querySelector('.prev');
           const next = game.querySelector('.next'); 
-          let currentIndex = 0; // Индекс текущего изображения, начинаем с 0
+          let currentIndex = 0;
       
           prev.addEventListener('click', () => {
               if (currentIndex > 0) {
@@ -71,7 +72,7 @@
           });
       
           function updateImage() {
-              // Убираем класс 'current' у всех изображений в текущем блоке
+  
               images.forEach((image, index) => {
                   if (index === currentIndex) {
                       image.classList.add('current');
@@ -81,7 +82,7 @@
               });
           }
       
-          updateImage(); // Вызываем для установки начального изображения
+          updateImage();
       });
       var currentGameID = null
       modalWindowBg.style.display = 'none'

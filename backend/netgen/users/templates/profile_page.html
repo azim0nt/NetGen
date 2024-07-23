@@ -15,6 +15,11 @@
         <div class="profile">
             <div class="profile-container">
                 <h1 class="username">{{obj.user.username}}</h1>
+                <b>Игры, которые загрузил пользователь</b>
+                {% for game in games %}
+                <a href="{% url 'details-game' game.id %}">{{game.name}}</a>
+                
+                {% endfor %}
            </div>
         </div> 
     </div>
