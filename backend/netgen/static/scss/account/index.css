@@ -59,7 +59,7 @@ a, button {
   background-color: rgba(0, 0, 0, 0);
 }
 .auth-wrapper .auth-container {
-  padding: 0 40px;
+  padding: 20px 50px;
   /* From https://css.glass */
   background: rgba(43, 0, 83, 0.365);
   border-radius: 16px;
@@ -68,7 +68,8 @@ a, button {
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(141, 103, 176, 0.45);
   width: 500px;
-  height: 500px;
+  min-height: 500px;
+  height: auto;
   border-radius: 20px;
   position: relative;
 }
@@ -120,6 +121,10 @@ a, button {
 }
 .auth-wrapper .auth-container .login-container form p label {
   display: none;
+}
+.auth-wrapper .auth-container .login-container form .social-accounts {
+  display: flex;
+  gap: 20px;
 }
 .auth-wrapper .auth-container .login-container form .btns {
   margin-top: 30%;

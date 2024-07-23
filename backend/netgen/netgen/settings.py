@@ -13,10 +13,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import requests
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')
+GOOGLE_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET')
+GITHUB_CLIENT_ID = config('GITHUB_CLIENT_ID')
+GITHUB_CLIENT_SECRET = config('GITHUB_CLIENT_SECRET')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -105,8 +109,8 @@ SOCIALACCOUNT_PROVIDERS = {
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
         'APP': {
-            'client_id': '...',
-            'secret': '...',
+            'client_id': GOOGLE_CLIENT_ID,
+            'secret': GOOGLE_CLIENT_SECRET,
             'key': ''
         }
     },
@@ -114,8 +118,8 @@ SOCIALACCOUNT_PROVIDERS = {
     # site for creating github auth service https://github.com/settings/developers
     'github': {
         'APP': {
-            'client_id': '...',
-            'secret': '...',
+            'client_id': GITHUB_CLIENT_ID,
+            'secret': GITHUB_CLIENT_SECRET,
             'key': ''
         }
     }
