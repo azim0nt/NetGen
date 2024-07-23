@@ -3,7 +3,7 @@ from .models import Games, GameImage
 from .forms import GamesForm
 from django.contrib import messages
 import os
-
+from django.contrib import messages
 def tap_to_earn(request):
     games = Games.objects.all()
     images = GameImage.objects.all()

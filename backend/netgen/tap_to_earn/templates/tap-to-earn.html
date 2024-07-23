@@ -5,6 +5,7 @@
 {% endblock %}
 {% block content %}
   <div class="games-wrapper">
+    
     <button class="bordered-btn"><a href="{% url 'add-game' %}">Добавить Игру</a></button>
     <div class="games-container">
       {% for obj in games %}
