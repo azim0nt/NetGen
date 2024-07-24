@@ -160,30 +160,33 @@ a, button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 15px;
+  height: 100%;
+  gap: 25px;
   margin-top: 20px;
   height: auto;
+}
+.auth-wrapper .auth-container .signup-container form ul {
+  display: none !important;
 }
 .auth-wrapper .auth-container .signup-container form p {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 .auth-wrapper .auth-container .signup-container form p input {
-  padding: 10px;
+  padding: 15px 20px;
   border: none;
   outline: none;
   background-color: #0e0820;
   border-radius: 10px;
 }
-.auth-wrapper .auth-container .signup-container form p:nth-child(4) {
-  flex-direction: row;
-  gap: 20px;
-}
-.auth-wrapper .auth-container .signup-container form p:nth-child(4) label {
-  display: block;
-}
 .auth-wrapper .auth-container .signup-container form p label {
+  display: none;
+}
+.auth-wrapper .auth-container .signup-container form p:nth-child(6) {
+  display: none;
+}
+.auth-wrapper .auth-container .signup-container form p span {
   display: none;
 }
 .auth-wrapper .auth-container .signup-container form .btns {

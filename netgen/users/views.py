@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from tap_to_earn.models import Games
 from django.contrib.auth.models import User
-
+from django.contrib.auth import logout
+from django.urls import reverse
 
 @login_required
 def profile_page(request, username=None):
@@ -18,3 +19,7 @@ def profile_page(request, username=None):
         "games": games
     }
     return render(request, "profile_page.html", context)
+
+def custom_logout(request):
+    logout(request)
+    return redirect(reverse('home'))
