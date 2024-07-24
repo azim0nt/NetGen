@@ -20,6 +20,10 @@
                 <a href="{% url 'details-game' game.id %}">{{game.name}}</a>
                 
                 {% endfor %}
+                <h2>Favorites</h2>
+                {% for star in stars %}
+                <p>{{star}}</p>
+                {% endfor %}
            </div>
         </div> 
     </div>

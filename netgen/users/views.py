@@ -12,11 +12,14 @@ def profile_page(request, username=None):
     user = get_object_or_404(User, username=username)
 
     obj = get_object_or_404(Profile, user=user)
+    favorites = [int(i) for i in request.session.get('favorites', []) ]
+    
+    
     games = Games.objects.filter(author_of_post=user)
-
     context = {
         "obj": obj,
-        "games": games
+        "games": games,
+        "stars":Games.objects.filter(id__in=favorites)
     }
     return render(request, "profile_page.html", context)
 

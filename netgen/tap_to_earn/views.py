@@ -4,6 +4,25 @@ from .forms import GamesForm
 from django.contrib import messages
 import os
 from django.contrib import messages
+from .usecases import add_to_favorites_fn, remove_from_favorites_fn
+
+def add_to_favorites(request, product_id: int):
+    if add_to_favorites_fn(request, product_id):
+        messages.success(request, "Successfully added to favorites")
+    else:
+        messages.warning(request, "You already have this product in your favorites")
+
+    referee = request.META.get('HTTP_REFERER')
+    return redirect(referee)
+
+def remove_from_favorites(request, product_id: int):
+    if remove_from_favorites_fn(request, product_id):
+        messages.success(request, "Successfully removed from favorites")
+    else:
+        messages.error(request, "You don't have this product in your favorites")
+
+    referee = request.META.get('HTTP_REFERER')
+    return redirect(referee)
 def tap_to_earn(request):
     games = Games.objects.all()
     images = GameImage.objects.all()
@@ -11,6 +30,7 @@ def tap_to_earn(request):
     for game in games:
         game_images = images.filter(game=game)
         context['games'].append({'game':game, 'images':game_images})
+    context["favorites"] = request.session.get("favorites", [])
     return render(request, 'tap-to-earn.html', context)
 
 
