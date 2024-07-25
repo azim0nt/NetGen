@@ -27,10 +27,13 @@
         <p>
           <b>Дата добавление :</b> {{ game.added_date }}
         </p>
+        {% if request.user.username == game.author_of_post.username %}
         <div class="CRUD-operations">
           <a class="bordered-btn blue" href="{% url 'update-game' game.id %}">Изменить</a>
           <a class="bordered-btn red" href="#" onclick="openModalWindow('{{ game.id }}')">Удалить</a>
         </div>
+        
+        {% endif %}
       </div>
     </div>
     <div class="modal-window-bg">
