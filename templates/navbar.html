@@ -9,9 +9,9 @@
         </div>
         {% with request.resolver_match.url_name as url_name %}
         <div class="middle">
-            <a href="{% url "coins" %}"  class="{% if url_name == 'coins' %}active{% endif %}">Монеты</a>
+            <a href="{% url "coin_list" %}"  class="{% if url_name == 'coin_list' %}active{% endif %}">Монеты</a>
             <a href="{% url "tap-to-earn" %}" class="{% if url_name == 'tap-to-earn' %}active{% endif %}">Tap-to-Earn</a>
-            <a href="{% url "market" %}" class="{% if url_name == 'market' %}active{% endif %}">Маркет</a>
+            {% comment %} <a href="{% url "buy_coin" %}" class="{% if url_name == 'buy_coin' %}active{% endif %}">Маркет</a> {% endcomment %}
             <a href="{% url "contacts" %}" class="{% if url_name == 'contacts' %}active{% endif %}">Контакты</a>
             <a href="{% url "dashboard" %}" class="{% if url_name == 'dashboard' %}active{% endif %}">Мой кабинет</a>
         </div>

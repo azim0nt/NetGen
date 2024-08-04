@@ -1,14 +1,17 @@
+from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
-from django.contrib.auth.models import User
 from PIL import Image
 import os
-import sys
 
-# Create your models here.
+class CustomUser(AbstractUser):
+    usdt_balance = models.DecimalField(max_digits=20, decimal_places=2, default=0.00)  # Баланс USDT
+
+
+    
+    
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(
-        upload_to='profile_pics/', default='profile_pics/default.png')
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='profile_pics/', default='profile_pics/default.png')
 
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -16,6 +19,7 @@ class Profile(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
+        # Обработка изображения
         img = Image.open(self.image.path)
         if img.height > 500 or img.width > 500:
             output_size = (500, 500)
@@ -23,11 +27,8 @@ class Profile(models.Model):
             img.save(self.image.path)
 
     def delete(self, *args, **kwargs):
-        # DELETE ACTUAL FILE
-        if os.path.isfile(self.image.path):
+        # Удаление файла изображения
+        if os.path.isfile(self.image.path) and self.image.name != 'profile_pics/default.png':
             os.remove(self.image.path)
-        else:
-            print("Error: %s file not found" % self.image.path)
-            sys.exit(1)
 
         super().delete(*args, **kwargs)

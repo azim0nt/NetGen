@@ -1,0 +1,23 @@
+<!-- coins/coin_detail.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ coin.name }}</h1>
+<p>Символ: {{ coin.symbol }}</p>
+<p>Рыночная капитализация: {{ coin.market_cap }} USDT</p>
+<p>Общее количество монет: {{ coin.total_supply }}</p>
+<p>Текущая цена: {{ coin.current_price }} USDT</p>
+
+<form method="post" action="{% url 'buy_coin' coin.id %}">
+    {% csrf_token %}
+    <input type="number" name="amount" step="0.01" min="0" placeholder="Количество монет" required>
+    <button type="submit">Купить</button>
+</form>
+
+<form method="post" action="{% url 'sell_coin' coin.id %}">
+    {% csrf_token %}
+    <input type="number" name="amount" step="0.01" min="0" placeholder="Количество монет" required>
+    <button type="submit">Продать</button>
+</form>
+{% endblock %}

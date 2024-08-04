@@ -1,10 +1,12 @@
 {% extends "base.html" %}
-{% load static %}
-{% block title %}
-<title>
-    NetGen - Coins
-</title>
-{% endblock title %}
+
 {% block content %}
-<h1>Монеты</h1>
-{% endblock content %}
+<h1>Список криптовалют</h1>
+<ul>
+    {% for coin in coins %}
+    <li>
+        <a href="{% url "coin_detail" coin.id %}">{{ coin.name }} - {{ coin.current_price }} USDT</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
