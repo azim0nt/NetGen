@@ -1,14 +1,12 @@
+# market/views.py
 
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Transaction
+from .models import Transaction, UserCoin
 from coins.models import Coin
 from django.http import HttpResponse
 from django.db import transaction as db_transaction
 from django.contrib.auth.decorators import login_required
 from decimal import Decimal
-# market/views.py
-
-from .models import Transaction, UserCoin
 
 @login_required
 def buy_coin(request, coin_id):
@@ -26,6 +24,10 @@ def buy_coin(request, coin_id):
             user_coin, created = UserCoin.objects.get_or_create(user=user, coin=coin)
             user_coin.amount += amount
             user_coin.save()
+
+            # Обновляем капитализацию и количество монет
+            coin.update_market_cap(total_price, is_buying=True)
+            coin.update_total_supply(amount, is_buying=True)
 
             # Создаем транзакцию
             Transaction.objects.create(
@@ -61,6 +63,10 @@ def sell_coin(request, coin_id):
             # Обновляем количество монет у пользователя
             user_coin.amount -= amount
             user_coin.save()
+
+            # Обновляем капитализацию и количество монет
+            coin.update_market_cap(total_price, is_buying=False)
+            coin.update_total_supply(amount, is_buying=False)
 
             # Создаем транзакцию
             Transaction.objects.create(
