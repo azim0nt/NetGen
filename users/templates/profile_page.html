@@ -22,7 +22,7 @@
                 {% endfor %}
                 <h2>Favorites</h2>
                 {% for star in stars %}
-                <p>{{star}}</p>
+                <a href="{% url "details-game" star.id %}">{{star.name}}</a>
                 {% endfor %}
            </div>
         </div> 
