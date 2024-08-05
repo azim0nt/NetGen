@@ -27,4 +27,4 @@ class Transaction(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)  
 
     def __str__(self):
-        return f"{self.transaction_type.capitalize()} {self.amount} {self.coin.name} by {self.user.username}"
+        return f"{self.transaction_type.capitalize()} {self.amount} {self.coin.name} by {self.user.username} time: {self.timestamp}"

@@ -1,6 +1,8 @@
 # coins/models.py
 
 from django.db import models
+from django.utils import timezone
+
 
 class Coin(models.Model):
     name = models.CharField(max_length=100)
@@ -33,3 +35,12 @@ class Coin(models.Model):
 
     def __str__(self):
         return f'#{self.id} {self.name} price: {self.current_price}'
+    
+    
+class CoinPriceHistory(models.Model):
+    coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=20, decimal_places=2)
+    timestamp = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.coin.name} - {self.price} at {self.timestamp}"
