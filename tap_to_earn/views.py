@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Games, GameImage
+from .models import Games
 from .forms import GamesForm
 from django.contrib import messages
 import os
@@ -25,29 +25,30 @@ def remove_from_favorites(request, product_id: int):
     return redirect(referee)
 def tap_to_earn(request):
     games = Games.objects.all()
-    images = GameImage.objects.all()
     context = {"games": []}
     for game in games:
-        game_images = images.filter(game=game)
-        context['games'].append({'game':game, 'images':game_images})
+        context['games'].append({'game':game})
     context["favorites"] = request.session.get("favorites", [])
     return render(request, 'tap-to-earn.html', context)
 
 
 def add_game(request):
-    form = GamesForm()
     if request.method == 'POST':
         form = GamesForm(request.POST, request.FILES)
-        form.instance.author_of_post = request.user
-        images = request.FILES.getlist('images')
         if form.is_valid():
-            form.save()
-            for img in images:
-                GameImage.objects.create(game=form.instance, image=img)
+            game = form.save(commit=False)
+            game.author_of_post = request.user
+            game.save()
             messages.success(request, 'Game added successfully')
             return redirect('tap-to-earn')
-    context = {'form': form, 'multiple_image':True}
+        else:
+            messages.error(request, 'There was an error with your form. Please correct the errors and try again.')
+    else:
+        form = GamesForm()
+
+    context = {'form': form}
     return render(request, 'add_game.html', context)
+
 
 
 def update_game(request, pk: int):
@@ -81,5 +82,5 @@ def delete_game(request,pk:int):
 
 def game_details(request, pk:int):
     game = Games.objects.get(id=pk)
-    context = {'game':game, 'images':GameImage.objects.filter(game=pk)}
+    context = {'game':game}
     return render(request, 'game_details.html', context)

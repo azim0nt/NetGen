@@ -6,7 +6,7 @@ from PIL import Image
 import os
 
 class CustomUser(AbstractUser):
-    usdt_balance = models.DecimalField(max_digits=20, decimal_places=2, default=0.00)  # Баланс USDT
+    usdt_balance = models.DecimalField(max_digits=20, decimal_places=2, default=0.00)
 
 
     
@@ -27,10 +27,3 @@ class Profile(models.Model):
             output_size = (500, 500)
             img.thumbnail(output_size)
             img.save(self.image.path)
-
-    def delete(self, *args, **kwargs):
-        # Удаление файла изображения
-        if os.path.isfile(self.image.path) and self.image.name != 'profile_pics/default.png':
-            os.remove(self.image.path)
-
-        super().delete(*args, **kwargs)

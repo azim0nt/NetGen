@@ -17,15 +17,15 @@ from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')
-GOOGLE_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET')
-GITHUB_CLIENT_ID = config('GITHUB_CLIENT_ID')
-GITHUB_CLIENT_SECRET = config('GITHUB_CLIENT_SECRET')
+# GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')
+# GOOGLE_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET')
+# GITHUB_CLIENT_ID = config('GITHUB_CLIENT_ID')
+# GITHUB_CLIENT_SECRET = config('GITHUB_CLIENT_SECRET')
 
-# GOOGLE_CLIENT_ID = ''
-# GOOGLE_CLIENT_SECRET = ''
-# GITHUB_CLIENT_ID = ''
-# GITHUB_CLIENT_SECRET = ''
+GOOGLE_CLIENT_ID = ''
+GOOGLE_CLIENT_SECRET = ''
+GITHUB_CLIENT_ID = ''
+GITHUB_CLIENT_SECRET = ''
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -59,7 +59,9 @@ INSTALLED_APPS = [
     'dashboard',
     'contacts',
     'tap_to_earn',
-    'users'
+    'users',
+    
+    'django_cleanup.apps.CleanupConfig',
     
 ]
 SITE_ID = 1
