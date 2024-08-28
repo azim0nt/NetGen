@@ -34,9 +34,9 @@ GITHUB_CLIENT_SECRET = config('GITHUB_CLIENT_SECRET')
 SECRET_KEY = 'django-insecure-zr(8+g*c8pp688#fl=#wg&tnvr^48^28u+=m#da!g^xb)y4s_b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['azim0nt.pythonanywhere.com']
 
 
 # Application definition
