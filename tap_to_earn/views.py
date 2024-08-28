@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from .models import Games
 from .forms import GamesForm
 from django.contrib import messages
-import os
-from django.contrib import messages
 from .usecases import add_to_favorites_fn, remove_from_favorites_fn
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def add_to_favorites(request, product_id: int):
     if add_to_favorites_fn(request, product_id):
         messages.success(request, "Successfully added to favorites")
@@ -15,6 +15,8 @@ def add_to_favorites(request, product_id: int):
     referee = request.META.get('HTTP_REFERER')
     return redirect(referee)
 
+
+@login_required
 def remove_from_favorites(request, product_id: int):
     if remove_from_favorites_fn(request, product_id):
         messages.success(request, "Successfully removed from favorites")
@@ -31,7 +33,7 @@ def tap_to_earn(request):
     context["favorites"] = request.session.get("favorites", [])
     return render(request, 'tap-to-earn.html', context)
 
-
+@login_required
 def add_game(request):
     if request.method == 'POST':
         form = GamesForm(request.POST, request.FILES)
@@ -50,7 +52,7 @@ def add_game(request):
     return render(request, 'add_game.html', context)
 
 
-
+@login_required
 def update_game(request, pk: int):
     game = Games.objects.get(id=pk)
     form = GamesForm(instance=game)

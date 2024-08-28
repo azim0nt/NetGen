@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>NetGen - Update Coin</title>
+{% endblock title %}
+
+{% block content %}
+<div class="add-game-wrapper form-wrapper">
+    <h1>Изменить данные монеты</h1>
+    <div class="form">
+        {% include "form_snippets.html"  with form=form btn_text="Внести изменения"%}
+    </div>
+</div>
+{% endblock content %}

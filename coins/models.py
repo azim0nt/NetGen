@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
 
 class Coin(models.Model):
@@ -10,6 +11,8 @@ class Coin(models.Model):
     market_cap = models.DecimalField(max_digits=20, decimal_places=2)
     total_supply = models.DecimalField(max_digits=20, decimal_places=2)
     current_price = models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True)
+    image = models.ImageField(upload_to='coins/', default='games/coins.png')
+    author_of_post = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
 
     def save(self, *args, **kwargs):
         if self.total_supply > 0:

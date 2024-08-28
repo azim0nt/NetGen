@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>Список криптовалют</h1>
+<a href="{% url "add_coin" %}" class="bordered-btn">Добавить монету</a>
 <ul>
     {% for coin in coins %}
     <li>

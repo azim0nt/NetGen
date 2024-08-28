@@ -1,6 +1,4 @@
 from django.db import models
-from PIL import Image
-from django.contrib.auth.models import User
 from django.conf import settings
 import os
 
@@ -18,7 +16,8 @@ class Games(models.Model):
     link = models.CharField(max_length=250)
     added_date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='games/', default='games/default.png')
-    author_of_post = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author_of_post = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+
     class Meta:
         verbose_name = 'Game'
         verbose_name_plural = 'Games'

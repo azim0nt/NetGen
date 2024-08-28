@@ -11,6 +11,7 @@ django-allauth = "*"
 requests = "*"
 jwt = "*"
 python-decouple = "*"
+django-cleanup = "*"
 
 [dev-packages]
 
