@@ -1,13 +1,57 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'scss/coins/index.css' %}" />
+{% endblock %}
 {% block content %}
-<h1>Список криптовалют</h1>
-<a href="{% url "add_coin" %}" class="bordered-btn">Добавить монету</a>
-<ul>
-    {% for coin in coins %}
-    <li>
-        <a href="{% url "coin_detail" coin.id %}">{{ coin.name }} - {{ coin.current_price }} USDT</a>
-    </li>
-    {% endfor %}
-</ul>
+  <div class="coins-wrapper">
+    <h1>Список криптовалют</h1>
+    <a href="{% url 'add_coin' %}" class="bordered-btn">Добавить монету</a>
+    <table class="coins">
+
+        <tr>
+          <th>
+            <p>Валюта</p>
+          </th>
+          <th>
+            <p>Цена</p>
+          </th>
+          <th>
+            <p>Капитализация</p>
+          </th>
+          <th>
+            <p>Количество монет</p>
+          </th>
+
+        </tr>
+
+   
+        {% for coin in coins %}
+          <tr class="tr-content">
+            
+            <td>
+              <div class="coin">
+                <div class="left">
+                  <img src="{{ coin.image.url }}" alt="{{ coin.name }}" />
+                </div>
+                <div class="right">
+                  <p class="name">{{ coin.symbol }}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+                <p>{{coin.current_price}}</p>
+            </td>
+            <td>
+                <p>{{coin.market_cap}}</p>
+            </td>
+            <td>
+                <p>{{coin.total_supply}}</p>  <div class="backdrop-filter"></div>
+            </td>
+          
+          </tr>
+        {% endfor %}
+
+    </table>
+  </div>
 {% endblock %}
