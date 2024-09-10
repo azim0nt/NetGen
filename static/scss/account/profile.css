@@ -15,6 +15,26 @@ a, button {
   background-color: transparent !important;
 }
 
+option {
+  color: #fff;
+  background-color: black;
+}
+
+::-moz-selection {
+  background: rgba(37, 163, 163, 0.568627451);
+  color: white;
+}
+
+::selection {
+  background: rgba(37, 163, 163, 0.568627451);
+  color: white;
+}
+
+::-moz-selection {
+  background: rgba(37, 163, 163, 0.568627451);
+  color: white;
+}
+
 .profile-wrapper {
   background-color: #000000;
   width: 100%;

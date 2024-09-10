@@ -14,9 +14,18 @@
             {% comment %} <a href="{% url "buy_coin" %}" class="{% if url_name == 'buy_coin' %}active{% endif %}">Маркет</a> {% endcomment %}
             <a href="{% url "contacts" %}" class="{% if url_name == 'contacts' %}active{% endif %}">Контакты</a>
             <a href="{% url "dashboard" %}" class="{% if url_name == 'dashboard' %}active{% endif %}">Мой кабинет</a>
+
         </div>
         {% endwith %}
         <div class="right">
+            <form  id="language-form" action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                <select class="bordered-btn"name="language" id="language-select">
+                    <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                    <option value="ru" {% if request.LANGUAGE_CODE == 'ru' %}selected{% endif %}>Russian</option>
+                </select>
+            </form>
             {% if request.user.is_authenticated %}
             <h2><a href="{% url "profile_page" request.user.username %}">{{request.user.username}}</a></h2>
             <a href="{% url 'account_logout' %}">Logout</a>

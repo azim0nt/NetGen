@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import requests
 from decouple import config
+from django.utils.translation import gettext_lazy as _
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -34,7 +35,7 @@ GITHUB_CLIENT_SECRET = config('GITHUB_CLIENT_SECRET')
 SECRET_KEY = 'django-insecure-zr(8+g*c8pp688#fl=#wg&tnvr^48^28u+=m#da!g^xb)y4s_b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['azim0nt.pythonanywhere.com','127.0.0.1','localhost']
 
@@ -71,6 +72,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -163,7 +165,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+LANGUAGES = (
+    ('en', _("English")),
+    ('ru', _("Russian"))
+)
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 

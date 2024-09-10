@@ -5,22 +5,22 @@
 {% endblock %}
 {% block content %}
   <div class="coins-wrapper">
-    <h1>Список криптовалют</h1>
-    <a href="{% url 'add_coin' %}" class="bordered-btn">Добавить монету</a>
+    <h1>{{coins_list}}</h1>
+    <a href="{% url 'add_coin' %}" class="bordered-btn">{{add_coin}}</a>
     <table class="coins">
 
         <tr>
           <th>
-            <p>Валюта</p>
+            <p>{{currency}}</p>
           </th>
           <th>
-            <p>Цена</p>
+            <p>{{price}}</p>
           </th>
           <th>
-            <p>Капитализация</p>
+            <p>{{capitalization}}</p>
           </th>
           <th>
-            <p>Количество монет</p>
+            <p>{{number_of_coins}}</p>
           </th>
 
         </tr>

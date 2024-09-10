@@ -17,17 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import *
-
+from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
-    path('', home, name='home'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
+    path('users/', include('users.urls')),
+    path('i18n/', include('django.conf.urls.i18n'))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns(
+    path('', home, name='home'),
     path('coins/', include('coins.urls')),   
     path('tap-to-earn/', include('tap_to_earn.urls')),   
     path('market/', include('market.urls')), 
     path('contacts/', include('contacts.urls')), 
-    path('accounts/', include('allauth.urls')),
     path('dashboard/', include('dashboard.urls')), 
-    path('users/', include('users.urls'))  
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)
+

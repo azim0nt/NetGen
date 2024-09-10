@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-10 17:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\coins\views.py:17
+msgid "Список криптовалют"
+msgstr "Cryptocurrency List"
+
+#: .\coins\views.py:18
+msgid "Добавить монету"
+msgstr "Add Coin"
+
+#: .\coins\views.py:19
+msgid "Валюта"
+msgstr "Currency"
+
+#: .\coins\views.py:20
+msgid "Цена"
+msgstr "Price"
+
+#: .\coins\views.py:21
+msgid "Капитализация"
+msgstr "Capitalization"
+
+#: .\coins\views.py:22
+msgid "Количество монет"
+msgstr "Number of Coins"
+
+#: .\netgen\settings.py:169
+msgid "English"
+msgstr "English"
+
+#: .\netgen\settings.py:170
+msgid "Russian"
+msgstr "Russian"
+
+#: .\netgen\views.py:7
+msgid "Главная"
+msgstr "Home"
+
+#: .\netgen\views.py:8
+msgid "Мы делаем крипту"
+msgstr "We make crypto"
+
+#: .\netgen\views.py:9
+msgid "понятной"
+msgstr "understandable"
+
+#: .\netgen\views.py:10
+msgid "и простой"
+msgstr "and simple"
+
+#: .\netgen\views.py:11
+msgid ""
+"Создавайте, покупайте и развивайте свою криптовалюту с помощью CoinFlip, "
+"платформы, предназначенной для каждого трейдера на любом уровне."
+msgstr ""
+"Create, buy, and develop your cryptocurrency with CoinFlip, a platform "
+"designed for every trader at any level."
+
+#: .\netgen\views.py:12
+msgid "Начать"
+msgstr "Get Started"

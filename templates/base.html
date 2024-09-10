@@ -76,6 +76,12 @@
           }).showToast()
         })
       })
+      document.addEventListener('DOMContentLoaded', () => {
+
+        document.getElementById('language-select').addEventListener('change', function() {
+            document.getElementById('language-form').submit();
+        });
+      });
     </script>
   </body>
 </html>

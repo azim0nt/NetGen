@@ -8,11 +8,22 @@ import json
 from .forms import CoinsForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from django.utils.translation import gettext_lazy as _
 
 def coin_list(request):
     coins = Coin.objects.all()
-    return render(request, 'coins.html', {'coins': coins})
+    context = {
+        {'coins': coins,
+         "coins_list":_("Список криптовалют"),
+         "add_coin":_("Добавить монету"),
+         "currency":_("Валюта"),
+         "price":_("Цена"),
+         "capitalization":_("Капитализация"),
+         "number_of_coins":_("Количество монет")
+         
+         }
+    }
+    return render(request, 'coins.html', context)
 
 def coin_detail(request, pk):
     coin = get_object_or_404(Coin, pk=pk)
