@@ -61,7 +61,8 @@ INSTALLED_APPS = [
     'contacts',
     'tap_to_earn',
     'users',
-    
+    'api',
+    'rest_framework',
     'django_cleanup.apps.CleanupConfig',
     
 ]
